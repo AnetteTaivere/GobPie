@@ -186,7 +186,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <argLine>-Xshare:off</argLine>
                     <consoleOutputReporter>
                         <disable>true</disable>
                     </consoleOutputReporter>
@@ -204,6 +203,13 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.12</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/abstractdebugging/*</exclude>
+                        <exclude>**/HTTPserver/*</exclude>
+                        <exclude>**/api/jsonrpc/*</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -216,12 +222,6 @@
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>default-check</id>
-                        <goals>
-                            <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
