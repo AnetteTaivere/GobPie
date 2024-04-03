@@ -27,5 +27,11 @@ jobs:
       - name: Build with Maven
         run: mvn install
 
+      - name: Create Jacoco report
+        run:  mvn test jacoco:report
+
       - name: Coveralls
         uses: coverallsapp/github-action@v2.2.3
+        with:
+          base-path: src/main/java
+          file: target/jacoco-report/jacoco.xml
