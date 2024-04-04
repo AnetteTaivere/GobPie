@@ -208,6 +208,7 @@
                         <exclude>**/abstractdebugging/*</exclude>
                         <exclude>**/HTTPserver/*</exclude>
                         <exclude>**/api/jsonrpc/*</exclude>
+                        <exclude>**/magpiebridge/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
